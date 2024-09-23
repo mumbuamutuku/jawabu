@@ -14,6 +14,10 @@ import {
   Database,
   LifeBuoy,
   FileText,
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin,
 } from "lucide-react";
 
 import user1 from "../assets/profile-pictures/user1.jpg";
@@ -24,10 +28,10 @@ import user5 from "../assets/profile-pictures/user5.jpg";
 import user6 from "../assets/profile-pictures/user6.jpg";
 
 export const navItems = [
-  { label: "Home", href: "#" },
-  { label: "Services", href: "#" },
-  { label: "Skills", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Home", href: "#home" },
+  { label: "Services", href: "#services" },
+  { label: "About Us", href: "#about-us" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export const testimonials = [
@@ -110,24 +114,19 @@ export const features = [
 
 export const checklistItems = [
   {
-    title: "Code merge made easy",
+    title: "Finance",
     description:
-      "Track the performance of your VR apps and gain insights into user behavior.",
+      "Improving the performance of our clients’ finance organizations.",
   },
   {
-    title: "Review code without worry",
+    title: "Technology",
     description:
-      "Track the performance of your VR apps and gain insights into user behavior.",
+      "modernising and integrating their mainstream IT and by deploying digital solutions to scale for a successful digital future.",
   },
   {
-    title: "AI Assistance to reduce time",
+    title: "Grants and Proposals",
     description:
-      "Track the performance of your VR apps and gain insights into user behavior.",
-  },
-  {
-    title: "Share work in minutes",
-    description:
-      "Track the performance of your VR apps and gain insights into user behavior.",
+      "Our robust, programmatic structure of industry-leading Strategic and Solution Partners provides the right solution and the right team to deliver critical technological business outcomes for our clientelle.",
   },
 ];
 
@@ -165,11 +164,10 @@ export const pricingOptions = [
 ];
 
 export const resourcesLinks = [
-  { href: "#", text: "Getting Started" },
-  { href: "#", text: "Documentation" },
-  { href: "#", text: "Tutorials" },
-  { href: "#", text: "API Reference" },
-  { href: "#", text: "Community Forums" },
+  { href: "#", text: "Home" },
+  { href: "#", text: "About us" },
+  { href: "#", text: "Services" },
+  { href: "#", text: "Contact" },
 ];
 
 export const platformLinks = [
@@ -181,11 +179,10 @@ export const platformLinks = [
 ];
 
 export const communityLinks = [
-  { href: "#", text: "Events" },
-  { href: "#", text: "Meetups" },
-  { href: "#", text: "Conferences" },
-  { href: "#", text: "Hackathons" },
-  { href: "#", text: "Jobs" },
+  { icon: <Facebook color="orange" />, href: "#", text: "Facebook" },
+  { icon: <Linkedin color="orange" />, href: "#", text: "LinkedIn" },
+  { icon: <Twitter color="orange" />, href: "#", text: "X" },
+  { icon: <Instagram color="orange" />, href: "#", text: "Instagram" },
 ];
 
 export const services = [
