@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import HeroSection from './components/HeroSection';
 import Navbar from './components/Navbar';
 import WorkFlow from './components/WorkFlow';
+import {what} from './assets/index.jsx';
 
 const App = () => {
   return (
@@ -25,6 +26,11 @@ const App = () => {
         </section>
       <Footer />
      </div>
+     <div className="fixed bottom-4 right-4 p-3 z-50">
+        <a href="https://wa.me/254741305364?text=Hello. how can I help you?" target="_blank" rel="noopener noreferrer">
+          <img src={what} width="60" alt="WhatsApp" />
+        </a>
+    </div>
     </>
   )
 }

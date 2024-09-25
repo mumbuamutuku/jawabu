@@ -32,10 +32,10 @@ const HeroSection = () => {
        Ivaden Consultancy has been providing Business, Finance & IT infrastructure services in combination with innovative practices and ability to engage with new business models. Adding values to businesses with a stark growth in profitability is our aim.
        </p>
        <div className="flex justify-center my-10">
-        <a href="#" className="bg-gradient-to-r from-orange-500 to-red-800 py-3 px-4 mx-3 rounded-md">
+        <a href="https://wa.me/254741305364?text=Hello. how can I help you?" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-orange-500 to-red-800 py-3 px-4 mx-3 rounded-md">
           Getting Started
         </a>
-        <a href="#" className="py-3 px-4 mx-3 rounded-md border">
+        <a href="#contact" className="py-3 px-4 mx-3 rounded-md border">
           Contact Us
         </a>
        </div>
