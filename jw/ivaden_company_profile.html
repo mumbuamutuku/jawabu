@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivaden Consultancy - Company Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .page {
+            min-height: 100vh;
+            page-break-after: always;
+            position: relative;
+        }
+        
+        .page:last-child {
+            page-break-after: avoid;
+        }
+        
+        /* Cover Page Styles */
+        .cover-page {
+            background-color: #000509;
+            
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cover-page::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0) rotate(0deg); }
+            100% { transform: translateX(-100px) translateY(-100px) rotate(360deg); }
+        }
+        
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            font-size: 48px;
+            font-weight: bold;
+            border: 3px solid rgba(255,255,255,0.3);
+            z-index: 1;
+        }
+        
+        .company-name {
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+        
+        .tagline {
+            font-size: 1.4em;
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            z-index: 1;
+        }
+        
+        .cover-subtitle {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            z-index: 1;
+        }
+        
+        .cover-description {
+            font-size: 1.1em;
+            max-width: 800px;
+            line-height: 1.8;
+            opacity: 0.95;
+            z-index: 1;
+        }
+        
+        /* Content Page Styles */
+        .content-page {
+            padding: 60px 50px;
+            background: white;
+        }
+        
+        .page-header {
+            border-bottom: 3px solid #3182ce;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .page-title {
+            font-size: 2.5em;
+            color: #2c5282;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.2em;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #2c5282;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .section-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #3182ce;
+            margin: 20px 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: #3182ce;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .service-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c5282;
+            margin-bottom: 10px;
+        }
+        
+        .service-description {
+            font-size: 1em;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .value-icon {
+            width: 40px;
+            height: 40px;
+            background: #3182ce;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin: 0 auto 15px;
+        }
+        
+        .value-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c5282;
+            margin-bottom: 8px;
+        }
+        
+        .value-description {
+            font-size: 0.95em;
+            color: #4a5568;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            border: 2px solid #3182ce;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #3182ce;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 1em;
+            color: #4a5568;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+        
+        .contact-info {
+            background: #2c5282;
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+        
+        .contact-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 30px;
+            height: 30px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #f1f5f9 25%, transparent 25%), 
+                        linear-gradient(-45deg, #f1f5f9 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #f1f5f9 75%), 
+                        linear-gradient(-45deg, transparent 75%, #f1f5f9 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            border: 2px dashed #cbd5e0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #718096;
+            font-weight: 500;
+            margin: 20px 0;
+        }
+        
+        @media print {
+            .page {
+                page-break-after: always;
+            }
+            .service-card:hover {
+                transform: none;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content-page {
+                padding: 30px 25px;
+            }
+            .company-name {
+                font-size: 2.5em;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="page cover-page">
+        <img class="logo-placeholder" src="logo.png" alt="Company Logo">
+        <h1 class="company-name">IVADEN CONSULTANCY</h1>
+        <p class="tagline">Driving Inclusive Growth, Innovation, and Impact</p>
+        <h2 class="cover-subtitle">Your Trusted Partner for Sustainable Development</h2>
+        <p class="cover-description">
+            Advancing sustainable development, inclusive finance, and enterprise growth across Africa through innovative solutions, strategic partnerships, and measurable impact.
+        </p>
+    </div>
+
+    <!-- About Us Page -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h1 class="page-title">About Ivaden Consultancy</h1>
+            <p class="page-subtitle">Empowering Africa's Future Through Strategic Excellence</p>
+        </div>
+
+        <div class="image-placeholder">
+            <img src="image1.jpeg" alt="About Us Image">
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Who We Are</h2>
+            <div class="section-content">
+                <p>Ivaden Consultancy is a dynamic advisory firm dedicated to advancing sustainable development, inclusive finance, and enterprise growth across Africa. Founded with a commitment to unlock opportunities for women, youth, and marginalized communities, we bring deep expertise in program management, investment readiness, monitoring & evaluation, and policy advisory.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Our work sits at the intersection of business, capital, technology, gender, and impact</strong>, positioning us as a trusted partner for development organizations, governments, investors, and social enterprises.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Our Vision</h2>
+            <div class="section-content">
+                <p>To be a leading consultancy in Africa that catalyzes inclusive, sustainable, and scalable solutions for businesses and communities.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Our Mission</h2>
+            <div class="section-content">
+                <p>To empower enterprises and development partners with <strong>insights, strategies, and technical support</strong> that drive measurable impact, financial sustainability, and gender transformation.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Page -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h1 class="page-title">Our Core Services</h1>
+            <p class="page-subtitle">Comprehensive Solutions for Sustainable Growth</p>
+        </div>
+
+        <div class="image-placeholder">
+            <img src="serv.jpeg" alt="Services Image">
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3 class="service-title">Business Advisory & Capital Raising</h3>
+                <p class="service-description">Supporting MSMEs with growth strategies, financial management, investment readiness, and connecting enterprises to debt, equity, and blended finance opportunities.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3 class="service-title">Program Design & Management</h3>
+                <p class="service-description">Providing end-to-end management of donor-funded initiatives, from conceptualization to execution with proven results.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3 class="service-title">Monitoring, Evaluation & Learning</h3>
+                <p class="service-description">Designing robust MEL frameworks, conducting impact assessments, and generating actionable insights for continuous improvement.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚖️</div>
+                <h3 class="service-title">Gender & Social Inclusion Advisory</h3>
+                <p class="service-description">Applying a gender-lens to investments and programs, ensuring women and youth are meaningfully engaged and benefit equitably.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🏛️</div>
+                <h3 class="service-title">Policy & Strategy Advisory</h3>
+                <p class="service-description">Engaging with governments, donors, and stakeholders to shape enabling environments for inclusive economic growth.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3 class="service-title">IT & Digital Business Solutions</h3>
+                <p class="service-description">Technology-driven solutions including digital financial systems, business intelligence tools, and enterprise automation for improved efficiency.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Competitive Advantage Page -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h1 class="page-title">Our Competitive Advantage</h1>
+            <p class="page-subtitle">What Sets Us Apart in the Market</p>
+        </div>
+
+        <div class="image-placeholder">
+            [Insert: Map of Africa showing project locations or success metrics dashboard]
+        </div>
+
+        <div class="section">
+            <div class="section-content">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Major Donors Served</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Key Sectors</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Enterprises Supported</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 15px;">✓ <strong>Proven expertise</strong> in managing donor-funded programs (GAC, SIDA, FCDO, EU, USAID)</li>
+                        <li style="margin-bottom: 15px;">✓ <strong>Deep sectoral experience</strong> in Blue Economy, Agriculture, Renewable Energy, and Climate Finance</li>
+                        <li style="margin-bottom: 15px;">✓ <strong>Demonstrated success</strong> in capital raising by linking enterprises to local and international financiers</li>
+                        <li style="margin-bottom: 15px;">✓ <strong>Strong networks</strong> with local enterprises, women's groups, and investors</li>
+                        <li style="margin-bottom: 15px;">✓ <strong>Digital transformation capability</strong> through innovative IT solutions</li>
+                        <li>✓ <strong>Technical excellence</strong> combined with hands-on field experience, grounded in Africa's realities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Page -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h1 class="page-title">Selected Experience</h1>
+            <p class="page-subtitle">Proven Track Record of Impact</p>
+        </div>
+
+        <div class="image-placeholder">
+            [Insert: Photo collage of project implementations or beneficiaries]
+        </div>
+
+        <div class="section">
+            <div class="section-content">
+                <div class="service-card" style="margin-bottom: 25px;">
+                    <h3 style="color: #2c5282; margin-bottom: 15px;">🌊 Blue Economy Development</h3>
+                    <p>Designed and implemented gender-lensed programs in Kenya's Blue Economy, empowering women fish traders and aquaculture entrepreneurs through targeted interventions and capacity building.</p>
+                </div>
+
+                <div class="service-card" style="margin-bottom: 25px;">
+                    <h3 style="color: #2c5282; margin-bottom: 15px;">💰 Capital Raising Success</h3>
+                    <p>Supported MSMEs in raising growth capital through comprehensive financial structuring, investor linkages, and investment readiness support, resulting in significant funding secured.</p>
+                </div>
+
+                <div class="service-card" style="margin-bottom: 25px;">
+                    <h3 style="color: #2c5282; margin-bottom: 15px;">🔧 Digital Solutions Implementation</h3>
+                    <p>Introduced cutting-edge digital solutions to improve accounting, monitoring, and supply chain management for SMEs, enhancing operational efficiency and transparency.</p>
+                </div>
+
+                <div class="service-card" style="margin-bottom: 25px;">
+                    <h3 style="color: #2c5282; margin-bottom: 15px;">🤝 Stakeholder Engagement</h3>
+                    <p>Facilitated multi-sector partnerships and stakeholder engagement initiatives to address systemic barriers facing women and youth enterprises across various sectors.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3 style="color: #2c5282; margin-bottom: 15px;">📚 Capacity Building Excellence</h3>
+                    <p>Conducted comprehensive training programs on donor compliance, financial management, and impact reporting for community-based enterprises, building sustainable local capacity.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Values Page -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h1 class="page-title">Our Values</h1>
+            <p class="page-subtitle">The Principles That Guide Our Work</p>
+        </div>
+
+        <div class="image-placeholder">
+            [Insert: Image representing diversity, teamwork, or community impact]
+        </div>
+
+        <div class="values-grid">
+            <div class="value-item">
+                <div class="value-icon">🛡️</div>
+                <h3 class="value-title">Integrity</h3>
+                <p class="value-description">We act with transparency and accountability in all our engagements</p>
+            </div>
+
+            <div class="value-item">
+                <div class="value-icon">💡</div>
+                <h3 class="value-title">Innovation</h3>
+                <p class="value-description">We design creative and practical solutions for complex challenges</p>
+            </div>
+
+            <div class="value-item">
+                <div class="value-icon">🤝</div>
+                <h3 class="value-title">Inclusion</h3>
+                <p class="value-description">We ensure no one is left behind in our development approach</p>
+            </div>
+
+            <div class="value-item">
+                <div class="value-icon">🎯</div>
+                <h3 class="value-title">Impact</h3>
+                <p class="value-description">We measure success by the transformation we create in communities</p>
+            </div>
+        </div>
+
+        <div class="section" style="margin-top: 50px;">
+            <h2 class="section-title">Why Choose Ivaden Consultancy?</h2>
+            <div class="highlight-box">
+                <p>At Ivaden Consultancy, we don't just provide services – we build partnerships that drive lasting change. Our unique combination of technical expertise, local knowledge, and commitment to inclusion makes us the ideal partner for organizations looking to create meaningful impact in Africa's development landscape.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h1 class="page-title">Let's Work Together</h1>
+            <p class="page-subtitle">Ready to Drive Impact? Get in Touch</p>
+        </div>
+
+        <div class="image-placeholder">
+            [Insert: Office location image or map of Nairobi]
+        </div>
+
+        <div class="contact-info">
+            <h2 class="contact-title">Contact Information</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <strong>Address:</strong><br>
+                        P.O. Box 373-90200<br>
+                        Nairobi, Kenya
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <strong>Phone:</strong><br>
+                        +254 711 147 134
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <strong>Email:</strong><br>
+                        ivadenconsultancy@gmail.com
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">🔗</div>
+                    <div>
+                        <strong>LinkedIn:</strong><br>
+                        IvadenConsultancy
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="text-align: center; margin-top: 40px;">
+            <h2 class="section-title">Ready to Transform Your Impact?</h2>
+            <p style="font-size: 1.2em; color: #4a5568; margin-bottom: 20px;">
+                Whether you're a development organization, government entity, investor, or social enterprise, 
+                Ivaden Consultancy is here to help you achieve your goals.
+            </p>
+            <div class="highlight-box">
+                <p style="font-size: 1.1em; margin: 0;">
+                    <strong>Contact us today to discuss how we can support your next initiative and drive meaningful change together.</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
