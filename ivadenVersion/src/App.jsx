@@ -487,7 +487,7 @@ const App = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900 dark:text-white">LinkedIn</h4>
-                      <p className="text-gray-600 dark:text-gray-400">IvadenConsultancy</p>
+                      <p className="text-gray-600 dark:text-gray-400"><a href="https://www.linkedin.com/company/ivaden-consultancy">IvadenConsultancy</a></p>
                     </div>
                   </div>
                 </div>
@@ -513,12 +513,12 @@ const App = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="flex items-center justify-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center text-white font-bold">
-                IV
+                <img src={logo} alt="Logo" className="w-6 h-6" />
               </div>
               <span className="font-bold text-xl text-blue-400">Ivaden Consultancy</span>
             </div>
             <p className="text-gray-400">
-              © 2024 Ivaden Consultancy. Driving Inclusive Growth, Innovation, and Impact.
+              © 2025 Ivaden Consultancy. Driving Inclusive Growth, Innovation, and Impact.
             </p>
           </div>
         </footer>
