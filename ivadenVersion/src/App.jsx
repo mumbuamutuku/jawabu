@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, ArrowRight, CheckCircle, Users, Target, Lightbulb, Shield, Phone, Mail, MapPin, Linkedin } from 'lucide-react';
-import logo from './assets/logo.png';
+import logo from './assets/logo2.png';
 import team from './assets/image1.jpeg';
 
 
@@ -155,7 +155,7 @@ const App = () => {
             <div className="flex justify-between items-center h-16">
               {/* Logo */}
               <div className="flex items-center space-x-2">
-                <div className="w-10 h-10 bg-gradient-to-br from-[#005E7F] to-[#003f57] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div className="w-10 h-10  rounded-full flex items-center justify-center text-white font-bold text-lg">
                   <img src={logo} alt="Logo" className="w-8 h-8" />
                 </div>
                 <span className="font-bold text-xl text-[#005E7F] dark:text-[#F9B916]">
@@ -235,7 +235,7 @@ const App = () => {
 
           {/* Content */}
           <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-            <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-8 backdrop-blur-sm border border-white/30">
+            <div className="w-24 h-24 bg-white/90 rounded-full flex items-center justify-center mx-auto mb-8 backdrop-blur-sm border border-white/30">
               <img src={logo} alt="Logo" className="w-16 h-16" />
             </div>
 
@@ -559,7 +559,7 @@ const App = () => {
         <footer className="bg-[#005E7F] dark:bg-black text-white py-8">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="flex items-center justify-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-[#005E7F] to-[#003f57] rounded-full flex items-center justify-center text-white font-bold">
+              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-white font-bold">
                 <img src={logo} alt="Logo" className="w-6 h-6" />
               </div>
               <span className="font-bold text-xl text-[#F9B916]">
